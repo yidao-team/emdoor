@@ -300,6 +300,7 @@ $(document).ready(function () {
 			}
 			item.eq(0).addClass("on")
 			item.hover(function(){
+				
 				$(this).addClass("on").siblings().removeClass("on");
 				var index = $(this).index();
 				swiper_1.slideTo(index) 
@@ -465,15 +466,37 @@ $(document).ready(function () {
 			var box = $('.product_wrap');
 			if (box.length) {
 				var swiper = box.find('.swiper_box'),
+					swiper2 = box.find('.procontent'),
 					pagination = box.find('.idxPageHide'),
 					prev = box.find('.prev'),
 					next = box.find('.next');
 				var swiper_1 = new Swiper(swiper, {
-					autoplay:true,
-					slidesPerView: 4.5,
-					spaceBetween: 20,
-					speed: 1200,
-					loop: true,
+					slidesPerView: 4.5,spaceBetween: 20,speed: 1200,
+					pagination: {el: pagination,clickable: true,},
+					watchOverflow: true,
+					navigation: {nextEl: next,prevEl: prev,},
+					breakpoints: {
+						990: {
+							slidesPerView: 3.5,
+							spaceBetween: 16,
+						},
+						768: {
+							slidesPerView: 3,
+							spaceBetween: 20,
+						},
+						480: {
+							slidesPerView: 1.5,
+							spaceBetween: 20,
+						}
+					},
+					on: {
+						slideChange: function () {
+							swiper_2.slideTo(this.activeIndex);
+						},
+					},
+				})
+				var swiper_2 = new Swiper(swiper2, {
+					slidesPerView: 1,spaceBetween: 20,speed: 1200,
 					pagination: {
 						el: pagination,
 						clickable: true,
@@ -483,13 +506,20 @@ $(document).ready(function () {
 						nextEl: next,
 						prevEl: prev,
 					},
-					breakpoints: {
-						990: {
-							slidesPerView: 3.5,
-							spaceBetween: 16,
-						}
+					
+					on: {
+						slideChange: function () {
+							swiper_1.slideTo(this.activeIndex);
+						},
 					},
 				})
+				
+				swiper.find(".swiper-slide").click(function () {
+					$(this).addClass("active").siblings().removeClass("active");
+				  var index = $(this).index();
+					swiper_2.slideTo(index) 
+				})
+
 			}
 		}
 		product_wrap();

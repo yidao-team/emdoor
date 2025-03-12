@@ -1682,13 +1682,13 @@ main { width: 100%; height: auto;  --header-height: 1.04rem;
     }
     .item:last-child{a{.black0}}
 }
-.product_wrap{ width: 100%; height: auto; position: relative; z-index: 1; overflow: hidden; 
+.product_wrap{position: relative; width: 100%; height: auto; z-index: 1; 
     .innerbox{width: 100%; height: auto;
         .protab{width: 100%; height: auto; position: relative; z-index: 1;
             &::before{position: absolute; content: ''; width: 100%; height: 100%; background-color: #fff; left: -100%;z-index: 2;}
 
             .swiper_box{width: 100%; height: auto; margin-top: .64rem;
-                .item{width: 100%; height: auto;.flex; gap: .16rem; padding: .04rem; background-color: var(--color_eee);border-radius: 8px;
+                .item{width: 100%; height: auto;.flex; gap: .16rem; cursor: pointer; padding: .04rem; background-color: var(--color_eee);border-radius: 8px;
                     .pic{width: 64%; height: auto; padding:.1rem ; background-color: #fff; border-radius: 8px;
                         .pb{padding-bottom: 63.63%;
                             .ab{.flex; .a_center; .j_center;}
@@ -1702,18 +1702,27 @@ main { width: 100%; height: auto;  --header-height: 1.04rem;
                         }
                     }
                 }
-                .active{background-color: var(--active_color);
-                    .info{
-                        .circledouble{background-color: var(--yellow);
-                            &::before{background-color: var(--active_color);}
+                .active{
+                    .item{background-color: var(--active_color);
+                        .info{
+                            .circledouble{background-color: var(--yellow);
+                                &::before{background-color: var(--active_color);}
+                            }
                         }
                     }
+                    
                 }
             }
         }
         .procontent{width: 100%; height: auto;margin-top: .82rem;
+            &:before{
+                position: absolute;top: 0; content: '';width: 100%;height: 100%;left: -97%;background-color: #fff;z-index: 2;
+            }
+            &:after{
+                position: absolute; top: 4.8rem;content: '';width: 100%;height: 100%;right: -97%;background-color: #fff;z-index: 2;
+            }
             .flexbox{width: 100%; height: auto; gap: .16rem;
-                .f_left{width: 100%; height: auto;max-width: 4.36rem; min-width: 290px;
+                .f_left{position: sticky;top: 1.5rem;width: 100%; height: fit-content;max-width: 4.36rem; min-width: 290px;
                     .proitem{padding: .48rem .32rem;border-radius: 8px;border: 1px solid #DDD;
                         .item{width: 100%; height: auto; margin-bottom: .56rem;
                             .title{.activec;font-size: var(--font24); padding-bottom: .24rem; border-bottom:solid 1px rgba(238, 238, 238, 0.93);}
@@ -1788,8 +1797,13 @@ main { width: 100%; height: auto;  --header-height: 1.04rem;
         }
     }
     @media @max990 {
-        .innerbox .procontent .flexbox .f_left{
-            min-width: 100%; min-height: 100%;
+        .innerbox .procontent {
+            &:before{left: -98%;}
+            &:after{right: -98%;}
+
+            .flexbox .f_left{position: relative; top: 0;
+                min-width: 100%; min-height: 100%;
+            }
         }
     }
     @media @max480 {
@@ -1890,6 +1904,26 @@ main { width: 100%; height: auto;  --header-height: 1.04rem;
         }
     }
 }
+.product_casestudios{width: 100%; height: auto; position: relative; z-index: 1; overflow: hidden;  background: var(--color_eee); padding: 1.2rem 0;
+    .innerbox{width: 100%; height: auto;
+        .itemlist{margin-top: .75rem; gap: .76rem;
+            .f_left{width: 40%; overflow: hidden; z-index: 3;
+                .tg{font-size: var(--font14); width: fit-content;
+                    color: var(--active_color); padding: .1rem .32rem;border-radius: 60px; background: rgb(16 88 158 / 6%);
+                }
+                .sec_title{margin-top: .32rem;}
+                .desc{font-size: var(--font14); margin-top: .16rem;}
+                .pagination-operate{margin-top: .88rem;}
+            }
+            .f_right{width: 60%; position: relative;
+                &::before{    position: absolute;content: '';width: 100%;height: 100%;left: -100%;background: var(--color_eee);z-index: 2; }
+                .pic{width: 100%; height: auto;
+                    img{width: 100%; height: auto;object-fit: cover; border-radius: 8px;}
+                }
+            }
+        }
+    }
+}
 .product_parameters{
     .product_info_top{padding:.4rem 0 .8rem 0;
         .flexbox{gap: .76rem;
@@ -1964,26 +1998,7 @@ main { width: 100%; height: auto;  --header-height: 1.04rem;
             }
         }
     }
-    .product_casestudios{width: 100%; height: auto; position: relative; z-index: 1; overflow: hidden;  background: var(--color_eee); padding: 1.2rem 0;
-        .innerbox{width: 100%; height: auto;
-            .itemlist{margin-top: .75rem; gap: .76rem;
-                .f_left{width: 40%; overflow: hidden; z-index: 3;
-                    .tg{font-size: var(--font14); width: fit-content;
-                        color: var(--active_color); padding: .1rem .32rem;border-radius: 60px; background: rgb(16 88 158 / 6%);
-                    }
-                    .sec_title{margin-top: .32rem;}
-                    .desc{font-size: var(--font14); margin-top: .16rem;}
-                    .pagination-operate{margin-top: .88rem;}
-                }
-                .f_right{width: 60%; position: relative;
-                    &::before{    position: absolute;content: '';width: 100%;height: 100%;left: -100%;background: var(--color_eee);z-index: 2; }
-                    .pic{width: 100%; height: auto;
-                        img{width: 100%; height: auto;object-fit: cover; border-radius: 8px;}
-                    }
-                }
-            }
-        }
-    }
+   
     
     @media @max768 {
         .product_info_bottom .header_link .flexbox {padding: .5rem 0;
@@ -2022,7 +2037,7 @@ main { width: 100%; height: auto;  --header-height: 1.04rem;
 }
 .product_overview_picinfo{width: 100%; height: auto; position: relative; z-index: 1; overflow: hidden; padding: 1.2rem 0;
     .innerbox{.flex; .f_column; gap: 1.2rem;width: 100%; height: auto;
-        .flexbox{.a_center; width: 100%; height: auto; padding-top: 1.2rem;
+        .flexbox{.a_center; width: 100%; height: auto; 
             .f_left{width: 50%; max-width: 45%;
                 .desc{font-size: var(--font14);margin-top: .32rem;}
             }
