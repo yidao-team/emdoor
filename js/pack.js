@@ -265,9 +265,22 @@ $(document).ready(function () {
 		}
 		aniText();
 
+		// a标签锚点平滑过渡
+    $('a[href^="#"]').on('click', function(event) {
+			var target = $(this.getAttribute('href'));
+			if( target.length ) {
+			event.preventDefault();
+			$('html, body').stop().animate({
+					scrollTop: target.offset().top - 60 // 调整滚动位置以适应导航栏的高度
+			}, 1000, function() {
+					window.location.hash = target.selector;
+			});
+			}
+		});
+
 	/* --------------------------------------------------------------- 首页 */
 		/* 首页banner */ 
-		function ins_aboutCon1() {
+		function idx_banner1() {
 				var box = $('.idx_banner1');
 				if (box.length) {
 						var swiper = box.find('.swiper_box'), pagination = box.find('.idxPageHide'), prev = box.find('.prev'), next = box.find('.next');
@@ -281,7 +294,7 @@ $(document).ready(function () {
 						})
 				}
 		}
-		ins_aboutCon1();
+		idx_banner1();
 		// 首页解决方案
 		function idx_solutionWrap(){
 			var box = $('.idx_solution'),
@@ -722,5 +735,67 @@ $(document).ready(function () {
 	}
 	product_casestudios();
 
+	
+	/* --------------------------------------------------------------- 硬件 */
+	function half_media_wrap(){
+		var box = $('.half_media_wrap');
+			if (box.length) {
+				var swiper = box.find('.swiper_box'), pagination = box.find('.idxPageHide'), prev = box.find('.prev'), next = box.find('.next');
+				var swiper_1 = new Swiper(swiper, {
+				slidesPerView: 7, spaceBetween: 13, speed: 1200,
+				//loop: true, effect: 'fade', fadeEffect: { crossFade: true, },
+				pagination: { el: pagination, clickable: true, }, watchOverflow: true,
+				navigation: { nextEl: next, prevEl: prev, },
+				breakpoints: { 990: { slidesPerView: 6, spaceBetween: 12, },768: { slidesPerView: 5, spaceBetween: 12, },768: { slidesPerView: 4, spaceBetween: 12, },480: { slidesPerView: 3, spaceBetween: 12, } },
+			})
+		}
+	}
+	half_media_wrap();
+
+
+	function half_modules_test(){
+		var box = $('.half_modules_test');
+			if (box.length) {
+				var swiper = box.find('.imgbg'),item = box.find('.item'), pagination = box.find('.idxPageHide'), prev = box.find('.prev'), next = box.find('.next');
+				var swiper_1 = new Swiper(swiper, {
+					slidesPerView: 1, spaceBetween: 0, speed: 1200,
+					effect: 'fade', fadeEffect: { crossFade: true, },
+					pagination: { el: pagination, clickable: true, }, watchOverflow: true,
+					navigation: { nextEl: next, prevEl: prev, },
+			})
+			item.hover(function(){
+					var d = $(this).index();
+					swiper_1.slideTo(d);
+			})
+
+
+
+		}
+	}
+	half_modules_test();
+
+	/* --------------------------------------------------------------- 售后服务 */
+
+	function server_wrap(){
+		var box = $('.server_wrap'),
+			  item = box.find(".f_left .item");
+				if (box.length) {
+					item.click(function(){
+						$(this).addClass("active").siblings().removeClass("active");
+					})
+				}
+	}
+	server_wrap();
+	/* --------------------------------------------------------------- 常见问题 */
+	function questions_Wrap() {
+		var box =$(".question_wrap"),
+				item = box.find(".item");
+				item.click(function(){
+					$(this).addClass("active").siblings().removeClass("active");
+				})
+
+
+	}
+	questions_Wrap()
 
 });

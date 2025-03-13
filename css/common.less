@@ -232,7 +232,28 @@ header.active{
 			.item_box .item .one{color: inherit;
 				.picon{img{filter: brightness(0) invert(0);}}
 			}
-			.item_contact a{background-color: #10589E; color: #fff; }
+			.item_contact a{background-color: #F6AB00; color: #fff; }
+		}
+	}
+	@media @max990 {
+		--header-height: 50px; margin-top: 0;
+	}
+}
+header.activeall{
+	--header-height: 60px;
+	// margin-top: -.48rem;
+	background-color: #fff;
+	.header_box {position: relative; z-index: 1;
+		&:after{position: absolute;content: ''; width: 120%; left: -10%; height: 1px; background: #EEE;}
+		.center_box {
+			.column_left .logo_box .logo {
+				.logo1{display: none;}
+				.logo2{display: block;}
+			}
+			.item_box .item .one{color: inherit;
+				.picon{img{filter: brightness(0) invert(0);}}
+			}
+			.item_contact a{background-color: #F6AB00; color: #fff; }
 		}
 	}
 	@media @max990 {

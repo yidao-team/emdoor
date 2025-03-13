@@ -915,11 +915,49 @@ header.active .header_box .center_box .item_box .item .one .picon img {
   filter: brightness(0) invert(0);
 }
 header.active .header_box .center_box .item_contact a {
-  background-color: #10589E;
+  background-color: #F6AB00;
   color: #fff;
 }
 @media (max-width:990px) {
   header.active {
+    --header-height: 50px;
+    margin-top: 0;
+  }
+}
+header.activeall {
+  --header-height: 60px;
+  background-color: #fff;
+}
+header.activeall .header_box {
+  position: relative;
+  z-index: 1;
+}
+header.activeall .header_box:after {
+  position: absolute;
+  content: '';
+  width: 120%;
+  left: -10%;
+  height: 1px;
+  background: #EEE;
+}
+header.activeall .header_box .center_box .column_left .logo_box .logo .logo1 {
+  display: none;
+}
+header.activeall .header_box .center_box .column_left .logo_box .logo .logo2 {
+  display: block;
+}
+header.activeall .header_box .center_box .item_box .item .one {
+  color: inherit;
+}
+header.activeall .header_box .center_box .item_box .item .one .picon img {
+  filter: brightness(0) invert(0);
+}
+header.activeall .header_box .center_box .item_contact a {
+  background-color: #F6AB00;
+  color: #fff;
+}
+@media (max-width:990px) {
+  header.activeall {
     --header-height: 50px;
     margin-top: 0;
   }
