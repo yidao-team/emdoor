@@ -527,7 +527,7 @@ $(document).ready(function () {
 					},
 				})
 				
-				swiper.find(".swiper-slide").click(function () {
+				swiper.find("li").click(function () {
 					$(this).addClass("active").siblings().removeClass("active");
 				  var index = $(this).index();
 					swiper_2.slideTo(index) 
@@ -543,7 +543,8 @@ $(document).ready(function () {
 				$("#hi-resume-pop").show()
 			})
 			$(".hi-close").click(function () {
-				$("#hi-resume-pop").hide()
+				$("#hi-resume-pop").hide();
+				$(".hi-resume-contact").hide();
 
 			})
 		}
@@ -702,11 +703,11 @@ $(document).ready(function () {
 					nextEl: next,
 					prevEl: prev,
 				},
-				on: {
-					slideChange: function () {
-						swiper_2.slideTo(this.activeIndex);
-					},
-				},
+				// on: {
+				// 	slideChange: function () {
+				// 		swiper_2.slideTo(this.activeIndex);
+				// 	},
+				// },
 			
 			})
 			var swiper_2 = new Swiper(swiper2, {
@@ -724,11 +725,11 @@ $(document).ready(function () {
 					nextEl: next,
 					prevEl: prev,
 				},
-				on: {
-					slideChange: function () {
-						swiper_1.slideTo(this.activeIndex);
-					},
-				},
+				// on: {
+				// 	slideChange: function () {
+				// 		swiper_1.slideTo(this.activeIndex);
+				// 	},
+				// },
 			
 			})
 		}
@@ -797,5 +798,9 @@ $(document).ready(function () {
 
 	}
 	questions_Wrap()
+	/* --------------------------------------------------------------- 联系我们 */
+	$("#contactUS").click(function(){
+		$(".hi-resume-contact").show();
+	})
 
 });

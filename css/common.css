@@ -165,6 +165,7 @@
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
+  --headertop-height: 0.48rem;
   background-color: #F5F5F5;
 }
 .header_topnav .innerbox {
@@ -180,7 +181,7 @@
   -ms-flex-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-  height: 0.48rem;
+  height: var(--headertop-height);
 }
 .header_topnav .innerbox .left {
   color: #666666;
@@ -346,7 +347,7 @@ header .m_header_box .header_title {
   overflow: hidden;
 }
 header .m_header_box .header_title .logo {
-  width: 50%;
+  width: 40%;
   height: 100%;
   position: relative;
   z-index: 5;
@@ -925,7 +926,7 @@ header.active .header_box .center_box .item_contact a {
   }
 }
 header.activeall {
-  --header-height: 60px;
+  --header-height: 1.04rem;
   background-color: #fff;
 }
 header.activeall .header_box {
