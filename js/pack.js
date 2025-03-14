@@ -57,6 +57,8 @@ window.addEventListener("DOMMouseScroll", function (event) {
 
 // 返回顶部
 $(document).ready(function () {
+	// 页面距离底部距离
+	
 	if ($("#to-top").length) {
 			var btnTop = document.getElementById('to-top');
 			btnTop.addEventListener('click', function () {
@@ -565,6 +567,9 @@ $(document).ready(function () {
 					})
 		}
 		profilter_result()
+
+
+
 		// 产品对比底部
 		
 		$(".showhide_btn").click(function(){
@@ -606,36 +611,43 @@ $(document).ready(function () {
 	product_parameters();
 		
 	function product_related() {
-		var box = $('.product_related');
-		if (box.length) {
-			var swiper = box.find('.itemlist'),
-				pagination = box.find('.idxPageHide'),
-				prev = box.find('.prev'),
-				next = box.find('.next');
-			var swiper_1 = new Swiper(swiper, {
-				slidesPerView: 4,
-				spaceBetween: 16,
-				speed: 1200,
-				//loop: true, effect: 'fade', fadeEffect: { crossFade: true, },
-				pagination: {
-					el: pagination,
-					clickable: true,
-				},
-				watchOverflow: true,
-				navigation: {
-					nextEl: next,
-					prevEl: prev,
-				},
-				breakpoints: {
-					768: {
-						slidesPerView: 3,
-						spaceBetween: 12,
+		var box2 = $('.product_related'),
+		item = box2.find(".swiper-slide");
+		if (box2.length) {
+			box2.each(function(){
+				var box = $(this);
+				var swiper = box.find('.itemlist'),
+					pagination = box.find('.idxPageHide'),
+					prev = box.find('.prev'),
+					next = box.find('.next');
+				var swiper_1 = new Swiper(swiper, {
+					slidesPerView: 4,
+					spaceBetween: 16,
+					speed: 1200,
+					//loop: true, effect: 'fade', fadeEffect: { crossFade: true, },
+					pagination: {
+						el: pagination,
+						clickable: true,
 					},
-					480: {
-						slidesPerView: 1,
-						spaceBetween: 12,
-					}
-				},
+					watchOverflow: true,
+					navigation: {
+						nextEl: next,
+						prevEl: prev,
+					},
+					breakpoints: {
+						768: {
+							slidesPerView: 3,
+							spaceBetween: 12,
+						},
+						480: {
+							slidesPerView: 1,
+							spaceBetween: 12,
+						}
+					},
+				})
+				item.click(function(){
+					$(this).find(".item").toggleClass("active")
+				})
 			})
 		}
 	}
