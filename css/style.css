@@ -1409,7 +1409,7 @@ input:-webkit-autofill {
   gap: 0.06rem;
   overflow: hidden;
   width: 0.6rem;
-  height: 0.7rem;
+  height: 0.6rem;
   background: #EDEDEC;
   font-size: var(--font14);
 }
@@ -2488,7 +2488,7 @@ main {
 .idx_banner1 .swiper_box .info {
   color: var(--color_fff);
   position: absolute;
-  width: 48%;
+  width: 100%;
   text-align: left;
   height: 100%;
   top: 0;
@@ -2506,6 +2506,7 @@ main {
   -webkit-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  width: 48%;
   transform: translateY(20px);
   text-align: left;
   opacity: 0;
@@ -2653,7 +2654,7 @@ main {
 }
 @media (max-width:480px) {
   .idx_banner1 .swiper_box .image img {
-    min-height: 500px;
+    min-height: 505px;
   }
   .idx_banner1 .swiper_box .info {
     width: 80%;
@@ -2663,6 +2664,7 @@ main {
   }
   .idx_banner1 .swiper_box .swiper-slide-active .info .t0 {
     font-size: var(--font30);
+    width: 100%;
   }
   .idx_banner1 .idxPageHide {
     bottom: 0.6rem;
@@ -2963,6 +2965,7 @@ main {
 }
 .idx_solution .innerbox .iright .centerInfo {
   color: var(--color_fff);
+  display: none;
   position: absolute;
   width: 64%;
   padding: 0.64rem 0.8rem;
@@ -2978,6 +2981,9 @@ main {
 }
 .idx_solution .innerbox .iright .centerInfo .idx_more {
   margin-top: 0.8rem;
+}
+.idx_solution .innerbox .iright .swiper-slide-active .centerInfo {
+  display: block;
 }
 .idx_solution .innerbox .iright .imgbg {
   width: 100%;
@@ -3096,12 +3102,6 @@ main {
   transition: all 0.5s ease;
   color: var(--yellow);
 }
-.idx_case .innerbox .swiper_box .item:hover .info .idx_more2 .icon {
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  transform: translateX(-0.2rem);
-}
 .idx_cooperation {
   width: 100%;
   height: auto;
@@ -3148,6 +3148,7 @@ main {
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
   filter: brightness(0) invert(0.8);
+  padding: 0.2rem;
 }
 .idx_cooperation .innerbox .ind-news-wrap .company-box .title {
   font-size: var(--font18);
@@ -3693,6 +3694,7 @@ main {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+  flex-direction: row-reverse;
   gap: 0.1rem;
   color: rgba(255, 255, 255, 0.7);
   padding-top: 0.33rem;
@@ -3707,7 +3709,6 @@ main {
   border-top-color: rgba(255, 255, 255, 0);
 }
 .idx_footer_form .info .innerbox .right .row .item .tag {
-  position: absolute;
   color: rgba(255, 255, 255, 0.7);
   white-space: nowrap;
   height: 0.38rem;
@@ -3720,19 +3721,12 @@ main {
   height: 0.38rem;
   z-index: 2;
 }
-.idx_footer_form .info .innerbox .right .row .item input:focus ~ .tag {
-  display: none;
-  color: red;
-}
-.idx_footer_form .info .innerbox .right .row .item input:focus ~ .sibling {
-  display: none;
-  color: red;
-}
 .idx_footer_form .info .innerbox .right .row textarea {
   width: 100%;
   margin-top: 0.48rem;
   height: 1rem;
   border: none;
+  color: #fff;
   background-color: rgba(255, 255, 255, 0);
 }
 .idx_footer_form .info .innerbox .right .row:first-child .item {
@@ -3746,14 +3740,8 @@ main {
   border-color: var(--color-active) !important;
   background-color: var(--color-active) !important;
 }
-.idx_footer_form .info .innerbox .right .submitbtn .layui-form-checked[lay-skin=primary] > i:hover {
-  border-color: var(--color-active) !important;
-}
 .idx_footer_form .info .innerbox .right .submitbtn .layui-form-checkbox[lay-skin=primary] > i {
-  background-color: inherit;
-}
-.idx_footer_form .info .innerbox .right .submitbtn .layui-form-checkbox[lay-skin=primary]:hover > i {
-  border-color: var(--color-active) !important;
+  background-color: #071822;
 }
 .idx_footer_form .info .innerbox .right .submitbtn .layui-form-checkbox > div {
   display: -webkit-box;
@@ -3768,15 +3756,29 @@ main {
   white-space: normal;
 }
 .idx_footer_form .info .innerbox .right .submitbtn .layui-form-checked[lay-skin=primary] > i {
-  border-color: var(--color-active) !important;
-  background-color: var(--color-active);
+  border-color: var(--active_color) !important;
+  background-color: var(--active_color);
 }
-.idx_footer_form .info .innerbox .right .submitbtn a {
+.idx_footer_form .info .innerbox .right .submitbtn .private {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
   color: var(--color_fff);
-  font-size: var(--font18);
+}
+.idx_footer_form .info .innerbox .right .submitbtn .private a {
+  color: var(--yellow);
+  font-size: var(--font14);
+  margin: 0 5px;
+}
+.idx_footer_form .info .innerbox .right .submitbtn .layui-icon-ok:before {
+  content: '';
+}
+.idx_footer_form .info .innerbox .right .submitbtn .layui-form-item .layui-form-checkbox .layui-icon-ok:before {
+  content: "\e605";
 }
 .idx_footer_form .info .innerbox .right .idx_more {
-  margin-top: 0.54rem;
+  margin-top: 0.32rem;
 }
 @media (max-width:1280px) {
   .idx_footer_form .info .innerbox .right .row textarea {
@@ -4758,7 +4760,7 @@ main {
   border-radius: 8px;
 }
 .product_parameters .product_info_top {
-  padding: 0.4rem 0;
+  padding-top: 0.4rem;
 }
 .product_parameters .product_info_top .flexbox {
   gap: 0.76rem;
@@ -6175,18 +6177,12 @@ main {
   cursor: pointer;
   margin-top: 0.5rem;
 }
-.product_buy .info .innerbox .submitbtn .layui-form-checked[lay-skin=primary] > i {
-  border-color: var(--active_color) !important;
-  background-color: var(--active_color) !important;
-}
-.product_buy .info .innerbox .submitbtn .layui-form-checked[lay-skin=primary] > i:hover {
-  border-color: var(--active_color) !important;
-}
 .product_buy .info .innerbox .submitbtn .layui-form-checkbox[lay-skin=primary] > i {
   background-color: inherit;
 }
 .product_buy .info .innerbox .submitbtn .layui-form-checkbox[lay-skin=primary]:hover > i {
   border: 1px solid #BEBEBE !important;
+  border-color: #fff;
 }
 .product_buy .info .innerbox .submitbtn .layui-form-checkbox > div {
   display: -webkit-box;
@@ -6507,6 +6503,9 @@ main {
   z-index: 1;
   padding-bottom: 1.2rem;
 }
+.question_wrap .main_title {
+  padding-top: 0.64rem;
+}
 .question_wrap .innerbox {
   width: 100%;
   height: auto;
@@ -6578,6 +6577,7 @@ main {
   border-radius: 8px;
   border: 1px solid #E8E8E8;
   padding: 0.13rem;
+  cursor: pointer;
 }
 .question_wrap .innerbox .flexbox .f_right .qus_block ul li .left {
   display: -webkit-box;
@@ -6662,10 +6662,17 @@ main {
   color: var(--active_color);
   background: rgba(16, 88, 158, 0.06);
 }
+.question_wrap .innerbox .flexbox .f_right .qus_block ul .active .qus_title .word {
+  color: #C4131A;
+  color: var(--active_color);
+}
 .question_wrap .innerbox .flexbox .f_right .qus_block ul .active .qus_title .more .show {
   display: none;
 }
 .question_wrap .innerbox .flexbox .f_right .qus_block ul .active .qus_title .more .hide {
+  display: block;
+}
+.question_wrap .innerbox .flexbox .f_right .qus_block ul .active .qus_content {
   display: block;
 }
 .question_wrap .innerbox .flexbox .f_right .qus_block ul .active .qus_content .icon {
@@ -7983,9 +7990,6 @@ main {
 .contact_wrap .flexbox .f_right .formtable .submitbtn .layui-form-checkbox[lay-skin=primary] > i {
   background-color: inherit;
 }
-.contact_wrap .flexbox .f_right .formtable .submitbtn .layui-form-checkbox[lay-skin=primary]:hover > i {
-  border-color: var(--color-active) !important;
-}
 .contact_wrap .flexbox .f_right .formtable .submitbtn .layui-form-checkbox > div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8166,34 +8170,6 @@ main {
 /* ------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------ */
-@font-face {
-  font-family: "ProductSans";
-  src: url("../fonts/ProductSans-Thin.ttf");
-  font-weight: 200;
-}
-@font-face {
-  font-family: "ProductSans";
-  src: url("../fonts/ProductSans-Light.ttf");
-  font-weight: 300;
-}
-@font-face {
-  font-family: "ProductSans";
-  src: url("../fonts/ProductSans-Regular.ttf");
-  font-weight: normal;
-}
-@font-face {
-  font-family: "ProductSans";
-  src: url("../fonts/ProductSans-Medium.ttf");
-  font-weight: 500;
-}
-@font-face {
-  font-family: "ProductSans";
-  src: url("../fonts/ProductSans-Bold.ttf");
-  font-weight: 700;
-}
-body {
-  font-family: "ProductSans";
-}
 /* ---------------------- 组件 */
 .w1600 {
   width: 100%;

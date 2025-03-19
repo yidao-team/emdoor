@@ -231,6 +231,27 @@ $(document).ready(function () {
 			$("header").addClass("active");
 		})
 
+		
+
+		// 鼠标上滑下滑---显示隐藏导航栏
+		var lastScrollTop = 0; // 初始化上次滚动的位置
+		$(window).scroll(function(event){
+				var st = $(this).scrollTop(); // 获取当前滚动位置
+
+				if(window.screen.width > 640){
+					if (st > lastScrollTop){
+							//页面下滑
+							$("header").addClass("navshow")
+					} else {
+							//页面上滑
+							$("header").removeClass("navshow")
+
+					}
+					lastScrollTop = st; // 更新上次滚动的位置
+				}
+
+		});
+
 		// menu点击
 		function menuBread() {
 			var showbread = $("header .header_box").hasClass("header_bread");
@@ -248,14 +269,14 @@ $(document).ready(function () {
 			
 			// 当鼠标移动到页面顶部附近时显示导航栏
 			$("header .header_box .center_box .item_box .item").on('mouseenter', function(e) {
-				$(this).find(".panel").stop().slideDown();
-				$(this).find(".solution_panel").stop().slideDown()
+				$(this).find(".panel").stop().slideDown(200);
+				$(this).find(".solution_panel").stop().slideDown(200)
 			});
 
 			// 当鼠标离开导航栏时隐藏它
 			$("header .header_box .center_box .item_box .item").on('mouseleave', function() {
-				$(this).find(".panel").stop().slideUp();
-				$(this).find(".solution_panel").stop().slideUp();
+				$(this).find(".panel").stop().slideUp(200);
+				$(this).find(".solution_panel").stop().slideUp(200);
 			});
 
 		}
@@ -307,9 +328,9 @@ $(document).ready(function () {
 				if (box.length) {
 						var swiper = box.find('.swiper_box'), pagination = box.find('.idxPageHide'), prev = box.find('.prev'), next = box.find('.next');
 						var swiper_1 = new Swiper(swiper, {
-							autoplay:true, 
+							// autoplay:true, 
 							loop:true,
-							slidesPerView: 1, spaceBetween: 0, speed: 3000,
+							slidesPerView: 1, spaceBetween: 0, speed: 1200,
 							pagination: { el: pagination, clickable: true, },
 							navigation: { nextEl: next, prevEl: prev, },
 							centeredSlides : true,
@@ -327,7 +348,7 @@ $(document).ready(function () {
 						autoplay:true, 
 						// loop:true,
 						effect:"fade",
-						slidesPerView: 1, spaceBetween: 0, speed: 3000,
+						slidesPerView: 1, spaceBetween: 0, speed: 1000,
 						pagination: { el: pagination, clickable: true, },
 						navigation: { nextEl: next, prevEl: prev, },
 						centeredSlides : true,
@@ -568,7 +589,7 @@ $(document).ready(function () {
 					
 				swiper.find("li").click(function () {
 					var index = $(this).index();
-					swiper_2[swiper1ActiveIndex].slideTo(index)
+					// swiper_2[swiper1ActiveIndex].slideTo(index)
 					// if(checkType(swiper2) === 'Array' ) {
 					// 	swiper_2[swiper1ActiveIndex].slideTo(index)
 					// } else {
@@ -604,7 +625,8 @@ $(document).ready(function () {
 					good = box.find(".f_left .proitem .item .goods .good"),  //产品右侧筛选
 					item = box.find(".f_right .itemlist .item");  //产品右侧筛选结果
 					good.click(function(){
-						$(this).addClass("active").siblings().removeClass("active");
+						// $(this).addClass("active").siblings().removeClass("active");
+						$(this).toggleClass("active")
 					})
 					item.click(function(){
 						$(this).toggleClass("active")
@@ -846,7 +868,7 @@ $(document).ready(function () {
 	/* --------------------------------------------------------------- 常见问题 */
 	function questions_Wrap() {
 		var box =$(".question_wrap"),
-				item = box.find(".item");
+				item = box.find(".innerbox .flexbox .f_right .qus_block ul li");
 				item.click(function(){
 					$(this).addClass("active").siblings().removeClass("active");
 				})

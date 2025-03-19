@@ -601,7 +601,7 @@ input:-webkit-autofill { background: transparent; transition: background-color 5
         .item-box {.dh;.flex; .a_center;.j_center; .white; flex-direction: column; gap: .06rem;
           overflow: hidden;
           width: .6rem;
-          height: .7rem;
+          height: .6rem;
           background: #EDEDEC;
           font-size: var(--font14);
           img { .flex; .a_center;.j_center;
@@ -1115,8 +1115,8 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
         .image{width: 100%; height: 100%;
             img,video{width: 100%; height: 100%; object-fit: cover;}
         }
-        .info{color: var(--color_fff);position: absolute;width: 48%; text-align: left;height: 100%; top: 0;left: 0;  .flex; .a_center;
-            .t0{.dh;transform: translateY(20px);text-align: left; opacity: 0; transition-delay: 1s; font-size: var(--font64);font-weight: 700;}
+        .info{color: var(--color_fff);position: absolute;width: 100%; text-align: left;height: 100%; top: 0;left: 0;  .flex; .a_center;
+            .t0{.dh;width: 48%; transform: translateY(20px);text-align: left; opacity: 0; transition-delay: 1s; font-size: var(--font64);font-weight: 700;}
             .idx_more{margin-top: .64rem;}
         }
         .swiper-slide-active{
@@ -1170,11 +1170,11 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
     @media @max480 {
         .swiper_box {
             .image{
-                img{min-height: 500px;}
+                img{min-height: 505px;}
             }
             .info{width: 80%;}
             video{min-height:500px;}
-            .swiper-slide-active .info .t0{font-size: var(--font30);}
+            .swiper-slide-active .info .t0{font-size: var(--font30);width: 100%;}
         }
         .idxPageHide{bottom: .6rem;}
     }
@@ -1312,11 +1312,14 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
         .iright{
             width: 68%; border-radius: 0px 8px 8px 0px;
             .swiper_box{width: 100%; height: 100%;}
-            .centerInfo{.white;
+            .centerInfo{.white; display: none;
                 position: absolute;width: 64%; padding: .64rem .8rem;
                 .t0{.bold;font-size: var(--font40);}
                 .t1{opacity: 0.8;margin-top: .16rem; font-size: var(--font16);}
                 .idx_more{margin-top: .8rem;}
+            }
+            .swiper-slide-active{
+                .centerInfo{display: block;}
             }
             .imgbg{width: 100%; height: 100%;
                 img{width: 100%; height: 100%; object-fit: cover;border-radius: 0px 8px 8px 0px;}
@@ -1362,7 +1365,7 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
                     .info{
                         .title{.dh;.black0;}
                         .idx_more2{.dh;color: var(--yellow);
-                            .icon{.dh; transform: translateX(-.2rem);}
+                            
                         }
                     }
                 }
@@ -1378,7 +1381,7 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
             .company-box{ background-color: #fff; margin-top: .16rem;
                 .pb{padding-bottom: 47.9%;
                     .ab{ overflow: hidden;.flex; .a_center; .j_center;
-                        img{.dh;filter: brightness(0) invert(0.8); }  
+                        img{.dh;filter: brightness(0) invert(0.8); padding: .2rem; }  
                     }
                 }
                 .title{font-size: var(--font18);text-align: center; line-height: 1;}
@@ -1618,21 +1621,21 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
                         padding-left: 0;
                         color: #fff;
                     }
-                    .item{.flex;gap:.1rem; color: rgba(255, 255, 255, 0.70);padding-top:.33rem;padding-bottom:.15rem; border: none; border-bottom: solid 1px rgba(255, 255, 255, 0.2); 
+                    .item{.flex; flex-direction: row-reverse;  gap:.1rem; color: rgba(255, 255, 255, 0.70);padding-top:.33rem;padding-bottom:.15rem; border: none; border-bottom: solid 1px rgba(255, 255, 255, 0.2); 
                         .layui-edge{width: 24px;
                             height: 15px;
                             background: url(../svg/select.svg) no-repeat !important;  border-top-color:rgba(255, 255, 255, 0)
                         }
-                        .tag{position: absolute;color: rgba(255, 255, 255, 0.7); white-space: nowrap;height: .38rem;}
+                        .tag{color: rgba(255, 255, 255, 0.7); white-space: nowrap;height: .38rem;}
                         input{width:100%; background-color: rgba(255, 255, 255, 0); border:none; color: #fff; height: .38rem; z-index: 2;}
-                        input:focus ~ .tag {
-                           display: none; color: red;
-                        }
-                        input:focus ~ .sibling  {
-                            display: none; color: red;
-                        }
+                        // input:focus ~ .tag {
+                        //    display: none; color: red;
+                        // }
+                        // input:focus ~ .sibling  {
+                        //     display: none; color: red;
+                        // }
                     }
-                    textarea{width: 100%; margin-top: .48rem;height: 1rem;border: none; background-color: rgba(255, 255, 255, 0);}
+                    textarea{width: 100%; margin-top: .48rem;height: 1rem;border: none; color: #fff; background-color: rgba(255, 255, 255, 0);}
                     &:first-child{
                         .item{
                             padding-top:0;
@@ -1643,31 +1646,25 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
                     .layui-form-checked[lay-skin=primary]>i{
                       border-color:var(--color-active) !important;
                       background-color:var(--color-active) !important;
-                      &:hover{
-                        border-color:var(--color-active) !important;
-                      }
                     }
-                  
                     .layui-form-checkbox[lay-skin=primary]>i{
-                      background-color: inherit;
-                        // background-color: #0c2836;
+                        background-color: #071822;
                     }
-                    .layui-form-checkbox[lay-skin=primary]:hover>i{
-                      border-color:var(--color-active) !important;
-                    }
-                    .layui-form-checkbox>div{.flex; .a_center;gap: .1rem;white-space: normal;
-                       
-                    }
+                    .layui-form-checkbox>div{.flex; .a_center;gap: .1rem;white-space: normal;}
                     
                     .layui-form-checked[lay-skin=primary] > i{
-                        border-color: var(--color-active) !important;
-                        background-color: var(--color-active);
+                        border-color: var(--active_color) !important;
+                        background-color: var(--active_color);
                     
                     }
-                    a{.white; font-size: var(--font18); }
+                    .private{.flex;.white; 
+                        a{.y1; font-size: var(--font14);margin: 0 5px; }
+                    }
+                    .layui-icon-ok:before{content: '';}
+                    .layui-form-item .layui-form-checkbox .layui-icon-ok:before{content: "\e605";}
                     
                 }
-                .idx_more{margin-top: .54rem;}
+                .idx_more{margin-top: .32rem;}
             }
     
         }
@@ -1991,7 +1988,7 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
     }
 }
 .product_parameters{
-    .product_info_top{padding:.4rem 0;
+    .product_info_top{padding-top:.4rem;
         .flexbox{gap: .76rem;
             .f_left{position: relative; width: 55%; background: url("../images/probg2.png") no-repeat;
                 background-size: cover; border-radius: 8px;padding: .32rem;
@@ -2457,13 +2454,13 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
                 }
             }
             .submitbtn{.black6; cursor: pointer; margin-top: .5rem;
-                .layui-form-checked[lay-skin=primary]>i{
-                    border-color:var(--active_color) !important;
-                    background-color:var(--active_color) !important;
-                    &:hover{
-                    border-color:var(--active_color) !important;
-                    }
-                }
+                // .layui-form-checked[lay-skin=primary]>i{
+                //     border-color:var(--active_color) !important;
+                //     background-color:var(--active_color) !important;
+                //     &:hover{
+                //         border-color:var(--active_color) !important;
+                //     }
+                // }
                 
                 .layui-form-checkbox[lay-skin=primary]>i{
                     background-color: inherit;
@@ -2471,6 +2468,7 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
                 }
                 .layui-form-checkbox[lay-skin=primary]:hover>i{
                     border: 1px solid #BEBEBE !important;
+                    border-color:#fff;
                 }
                 .layui-form-checkbox>div{.flex; .a_center;gap: .1rem;white-space: normal;
                     
@@ -2607,7 +2605,7 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
 
 /* --------------------------------------------------------------- 常见问题 -- 售后服务 */
 .question_wrap{width: 100%; height: auto; position: relative; z-index: 1;  padding-bottom: 1.2rem; 
-    
+    .main_title {padding-top: .64rem;}
     .innerbox{width: 100%; height: auto; margin-top: .74rem;
         .flexbox{gap:.32rem;
             .f_left{width: 30%; position: sticky; top: 1.8rem; width: 4.36rem; height: fit-content; border: solid 1px var(--color_ddd); border-radius: 8px;
@@ -2626,7 +2624,7 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
             .f_right{width: 100%; height: auto;
                 .qus_block{margin-bottom: .55rem;
                     ul{width: 100%; height: auto;  margin-top: .3rem;
-                        li{width: 100%; height: auto;   margin-top: .18rem;border-radius: 8px;border: 1px solid #E8E8E8; padding: .13rem;
+                        li{width: 100%; height: auto;   margin-top: .18rem;border-radius: 8px;border: 1px solid #E8E8E8; padding: .13rem; cursor: pointer;
                             .left{.flex; .a_center;gap: .2rem;width: 100%;
                                 .icon{.f_center; .black9;  width: .4rem; height: .4rem; min-width: 35px; min-height: 35px;
                                     border-radius: 8px; 
@@ -2634,7 +2632,6 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
                                 .word{.black2;width: 80%; line-height: calc(24/16)}
                             }
                             .qus_title{.flex; .a_center; .j_justify;gap: .2rem;width: 100%; height: auto; font-size: var(--font18);
-                                
                                 .more{width: .26rem;
                                     .hide{display: none;}
                                 }
@@ -2646,12 +2643,13 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
                         .active{background: #F6F6F6;
                             .qus_title{
                                 .icon{.activec;background: rgb(16 88 158 / 6%);}
+                                .word{.activec;}
                                 .more{
                                     .show{display: none;}
                                     .hide{display: block;}
                                 }
                             }
-                            .qus_content{
+                            .qus_content{display: block;
                                 .icon{.activey; background: rgb(246 171 0 / 6%);}
                                
                             }
@@ -3172,9 +3170,7 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
                       background-color: inherit;
                         // background-color: #0c2836;
                     }
-                    .layui-form-checkbox[lay-skin=primary]:hover>i{
-                      border-color:var(--color-active) !important;
-                    }
+                  
                     .layui-form-checkbox>div{.flex; .a_center;gap: .1rem;white-space: normal;
                        
                     }
@@ -3262,13 +3258,13 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
 /* ------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------ */
 
-@font-face {font-family: "ProductSans"; src: url("../fonts/ProductSans-Thin.ttf"); font-weight: 200;}
-@font-face {font-family: "ProductSans"; src: url("../fonts/ProductSans-Light.ttf"); font-weight: 300;}
-@font-face {font-family: "ProductSans"; src: url("../fonts/ProductSans-Regular.ttf"); font-weight: normal;}
-@font-face {font-family: "ProductSans"; src: url("../fonts/ProductSans-Medium.ttf"); font-weight: 500;}
-@font-face {font-family: "ProductSans"; src: url("../fonts/ProductSans-Bold.ttf"); font-weight: 700;}
+// @font-face {font-family: "ProductSans"; src: url("../fonts/ProductSans-Thin.ttf"); font-weight: 200;}
+// @font-face {font-family: "ProductSans"; src: url("../fonts/ProductSans-Light.ttf"); font-weight: 300;}
+// @font-face {font-family: "ProductSans"; src: url("../fonts/ProductSans-Regular.ttf"); font-weight: normal;}
+// @font-face {font-family: "ProductSans"; src: url("../fonts/ProductSans-Medium.ttf"); font-weight: 500;}
+// @font-face {font-family: "ProductSans"; src: url("../fonts/ProductSans-Bold.ttf"); font-weight: 700;}
 
-body { font-family: "ProductSans";  }
+// body { font-family: "ProductSans";  }
 /* ---------------------- 组件 */
 .w1600 { width: 100%; max-width: 1600px; margin: 0 auto; 
     @media @max1920 { max-width: 83.3333%; }

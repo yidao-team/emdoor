@@ -38,7 +38,7 @@
                             <img src="./images/index_banner.jpg" alt="" class="m_img">
                         </div>
                         <div class="info">
-                            <div class="w1760">
+                            <div class="w1792">
                                 <p class="t0">Make Cutting-Edge Technology
                                     More Accessible</p>
                                     <a class="idx_more">
@@ -53,7 +53,7 @@
                     </li>
                     <li class="swiper-slide">
                         <div class="image">
-                            <video autoplay muted preload loop>
+                            <video autoplay muted preload >
                                 <source src="./video/explore-v2.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -961,14 +961,12 @@
                                             <!-- <span>I have read and agree emdoor</span>
                                             <a href="" class="y1"> Privacy Policy </a> and
                                             <a href="" class="y1"> Disclaimer</a> . -->
-
-                                            <a href="policy.html" class="font16">I have read and agree emdoor <ins class="y1"> Privacy Policy </ins>and <ins class="y1"> Disclaimer </ins></a>
-
+                                            <!-- <a href="policy.html" class="font16">I have read and agree emdoor <ins class="y1"> Privacy Policy </ins>and <ins class="y1"> Disclaimer </ins></a> -->
+                                            <div href="policy.html" class="font14 private">I have read and agree emdoor <a class="y1" href=""> Privacy Policy </a>and <a class="y1" href=""> Disclaimer </a></div>
+                                        
                                         </div>
                                     </div>
                                 </div>
-
-                              
                             </div>
                             <a class="idx_more">
                                 <span class="word">Explore More</span>
@@ -1013,24 +1011,22 @@
 
         // // 表单--输入框是否有值
 
-        $(window).on('load', function () {
-            var box = $(".idx_footer_form "),
-                inputVal = box.find(".right .row .item input");
+        // $(window).on('load', function () {
+        //     var box = $(".idx_footer_form "),
+        //         inputVal = box.find(".right .row .item input");
 
-            inputVal.blur(function () {
-                var thisval = $(this).val();
-                console.log(thisval)
-                if (thisval != '') {
-                    $(this).next().hide();
-                } else {
-                    $(this).next().show();
-                }
-            })
-
-
+        //     inputVal.blur(function () {
+        //         var thisval = $(this).val();
+        //         console.log(thisval)
+        //         if (thisval != '') {
+        //             $(this).next().hide();
+        //         } else {
+        //             $(this).next().show();
+        //         }
+        //     })
 
 
-        })
+        // })
     </script>
 </body>
 
