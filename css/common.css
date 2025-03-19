@@ -1040,7 +1040,7 @@ header .header_box .center_box .column_left .logo_box {
   gap: 30px;
 }
 header .header_box .center_box .column_left .logo_box .logo {
-  max-width: 3.2rem;
+  max-width: 1.79rem;
 }
 header .header_box .center_box .column_left .logo_box .logo img {
   filter: var(--fiter);
@@ -2847,6 +2847,7 @@ footer .bg_img img {
 }
 .layui-laypage a,
 .layui-laypage span {
+  font-size: var(--font16);
   color: #999 !important;
   padding: 0;
   margin: 0;
@@ -2881,6 +2882,9 @@ footer .bg_img img {
 }
 .layui-laypage .layui-laypage-curr {
   background: var(--yellow);
+}
+.layui-laypage .layui-laypage-curr em {
+  color: #000;
 }
 /* ------------------------------------------------------------------- layui input */
 .layui_box {

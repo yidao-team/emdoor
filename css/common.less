@@ -274,7 +274,7 @@ header { width: 100%; height: auto; position: fixed; top: 0; left: 0; z-index: 2
 		.center_box { width: 100%; height: 100%; .flex; .j_justify; 
 			.column_left { width: auto; height: 100%; .flex; gap: 0.6rem;
 				.logo_box { width: auto; height: 100%; .flex; .a_center; gap: 30px; 
-					.logo { max-width: 3.2rem; img { filter: var(--fiter); .dh;} 
+					.logo { max-width: 1.79rem; img { filter: var(--fiter); .dh;} 
 						.logo2{display: none;}
 					}
 				}
@@ -722,11 +722,13 @@ footer { width: 100%; height: auto; position: relative; z-index: 1; overflow: hi
 
 /* ------------------------------------------------------------------- layui 分页 */ 
 .layui-laypage { width: 100%; height: auto; .flex; gap: 0.1rem; .a_center; .j_center; 
-    a, span {color: #999!important; padding: 0; margin: 0; width: .48rem; height: .48rem; min-width: 30px; min-height: 30px;  .flex; .a_center; .j_center; border-radius: 8px !important; overflow: hidden; cursor: pointer; border: 1px solid #DDD;
+    a, span {font-size: var(--font16);  color: #999!important; padding: 0; margin: 0; width: .48rem; height: .48rem; min-width: 30px; min-height: 30px;  .flex; .a_center; .j_center; border-radius: 8px !important; overflow: hidden; cursor: pointer; border: 1px solid #DDD;
 			img{filter: brightness(0);}
 		}
     .layui-laypage-em { background: none !important; opacity: 0; }
-    .layui-laypage-curr { background: var(--yellow); }
+    .layui-laypage-curr { background: var(--yellow); 
+			em{color: #000;}
+		}
 }
 
 
