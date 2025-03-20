@@ -1743,7 +1743,7 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
 
 /* --------------------------------------------------------------- 产品 */
 
-.head_tag{.flex; .a_center;  padding: .4rem 0;gap: .05rem;
+.head_tag{.flex; .a_center; flex-wrap: wrap;  padding: .4rem 0;gap: .05rem;
     font-size: var(--font16);
     .item{.flex; .a_center;.black9;gap: .05rem;
         a{.black9;}
@@ -2014,7 +2014,7 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
     }
 }
 .product_parameters{width: 100%; height: auto; position: relative; z-index: 1; overflow: hidden; 
-    .product_info_top{width: 100%; height: auto;padding-bottom: .8rem;
+    .product_info_top{width: 100%; height: auto;padding-bottom: .56rem;
         .flexbox{gap: .76rem;
             .f_left{position: relative; width: 55%; background: url("../images/probg2.png") no-repeat;
                 background-size: cover; border-radius: 8px;padding: .32rem;
@@ -2335,7 +2335,8 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
         .info{.f_center; .center; flex-direction: column; .white; position: absolute;width: 100%; top: 0; height: 100%;z-index: 2;   color: var(--color_fff);z-index: 2;
             .title{.bold; font-size: var(--font64); max-width: 660px;}
             .desc{font-size: var(--font16); width: 50%; margin-top: .48rem;}
-
+            .t0{.y1; font-size: var(--font32);}
+            .t2{margin-top:.16rem; line-height: 1;}
         }
        
     }
@@ -2377,6 +2378,9 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
             }
         }
     }
+    .socialbox:nth-child(1){
+        padding-top: 0;
+    }
     .socialbox:nth-child(even){background-color: var(--color_f5);}
     @media @max990 {
         .socialbox .flexbox .f_left {max-width: 100%;
@@ -2384,7 +2388,7 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
         }
     }
     @media @max480 {
-        .socialbox .flexbox .f_left .sendtime{.flex_wrap;
+        .socialbox .flexbox .f_left .sendtime{.flex_wrap; gap: .1rem;
             .item{padding: 0; border-right: 0; padding: .02rem 0;}
         }
     }
@@ -2920,7 +2924,7 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
                                 }
                                 .time{.black6; font-size: var(--font20); margin-top: .04rem;}
                             }
-                            .fare{position: absolute; right: 0; top: 0; color: #1F920E; font-size: var(--font16);}
+                            .fare{.bold; position: absolute; right: 0; top: 0; color: #1F920E; font-size: var(--font16);}
                         }
 
                     }
