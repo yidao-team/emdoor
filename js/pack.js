@@ -803,12 +803,13 @@ $(document).ready(function () {
 					nextEl: next,
 					prevEl: prev,
 				},
-				// on: {
-				// 	slideChange: function () {
-				// 		swiper_1.slideTo(this.activeIndex);
-				// 	},
-				// },
-			
+				breakpoints: {
+					480: {
+						slidesPerView: 1,
+						spaceBetween: 30,
+					}
+				},
+				
 			})
 		}
 	}

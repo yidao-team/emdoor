@@ -16,9 +16,9 @@ html { font-size: calc(100vw/19.2); -webkit-text-size-adjust: 100%; -ms-text-siz
 }
 
 body { min-height: 100%; 
-    font-family: "Microsoft YaHei","Microsoft YaHei UI","SimSun","SimHei","Arial"; 
+    // font-family: "Microsoft YaHei","Microsoft YaHei UI","SimSun","SimHei","Arial"; 
     font-family: "ProductSans";
-    font-size:16px; color:#000; 
+    font-size: var(--font16) !important; color:#000; 
     background:#fff; 
     @media @max1580{ font-size:14px; }  
     @media @max767{ font-size:.28rem; } 
@@ -1073,8 +1073,8 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
 .header_link{width: 100%; height: auto; border-bottom: solid 1px var(--color_ddd);
     .flexbox{.flex;.a_center;padding: .145rem 0;
         .f_left{font-size: var(--font24);}
-        .f_right{.flex;.a_center; gap: .56rem;font-size: var(--font16);}
-            .wordbox{.flex;.a_center;gap: .32rem; padding: .23rem 0;
+        .f_right{.flex;.a_center; gap: .56rem;font-size: var(--font16);
+            .wordbox{.flex;.a_center;flex-wrap: wrap; gap: .32rem; padding: .23rem 0;
                 .item{.dh;display: block;border-bottom: solid 2px rgba(255, 255, 255, 0);
                     &:hover{.dh; .activec; border-bottom: solid 2px var(--yellow);
 
@@ -1087,6 +1087,12 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
                 .i_Contrast{.white; cursor: pointer; background-color: var(--active_color);}
             }
         }
+    }
+    @media @max480 {
+        .flexbox {padding: 0.3rem 0;
+            .f_right{flex-direction: column; .a_start; gap: 0rem;}
+        }
+    }
     
 }
 /* --------------------------------------------------------------- 首页 */
@@ -1734,9 +1740,9 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
 
 /* --------------------------------------------------------------- 产品 */
 
-.head_tag{.flex; .a_center;  padding: .4rem 0;
+.head_tag{.flex; .a_center;  padding: .4rem 0;gap: .05rem;
     font-size: var(--font16);
-    .item{.flex; .a_center;.black9;
+    .item{.flex; .a_center;.black9;gap: .05rem;
         a{.black9;}
     }
     .item:last-child{a{.black0}}
@@ -1998,24 +2004,30 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
             }
         }
     }
+    @media @max990 {
+        .flexbox{gap:.2rem;
+            .idx_more{display: none;}
+        }
+    }
 }
-.product_parameters{
-    .product_info_top{padding-top:.4rem;
+.product_parameters{width: 100%; height: auto; position: relative; z-index: 1; overflow: hidden; 
+    .product_info_top{width: 100%; height: auto;padding-bottom: .8rem;
         .flexbox{gap: .76rem;
             .f_left{position: relative; width: 55%; background: url("../images/probg2.png") no-repeat;
                 background-size: cover; border-radius: 8px;padding: .32rem;
                 .pic{.flex; .a_center; .j_center;.f_column; width: 100%; height: 90%;overflow: hidden;}
-                    ul,li{width: 100%; height: 100%;}
-                    .img{.flex; .a_center; .j_center; width: 90%; height: 100%;  margin: auto;
+                ul{transform: translate3d(0px, 0px, 0px)!important;}
+                    ul,li{width: 100%!important; height: 100%!important; }
+                    .img{.flex; .a_center; .j_center; width: 70%; height: 100%;  margin: auto;
                    
                 }
                 .operate{.flex; .a_center; .j_center; gap: .08rem; 
                     .item{.dh;.flex; .a_center; .black9; cursor: pointer; gap: .12rem;border-radius: 40px;
-                        background: #FFF; padding: .1rem .32rem;
+                        background: #FFF; padding: 0.12rem 0.325rem;
                         .icon{.flex; .a_center; width: .16rem; height: .16rem; min-width: 13px; min-height: 13px;
                             img{width: 100%; height: 100%; object-fit: contain;}
                         }
-                        .word{.dh;.black9;}
+                        .word{.dh;.black9;    font-size: 12px;}
                     }
                     .active{.dh; background: var(--active_color);
                         .icon{filter: brightness(0) invert(1)}
@@ -2028,9 +2040,9 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
                 .main_title{.activec;}
                 .sec_title{padding-bottom: .4rem; }
                 .info{padding-top: .4rem;border-top: solid 1px var(--color_ddd);
-                    .desc{font-size: var(--font16); opacity: .6;}
+                    .desc{font-size: var(--font16); opacity: .6;line-height: 140%;}
                     .details{margin-top: .4rem;padding-left: .3rem;
-                        .dli{font-size: var(--font20);    list-style: disc; }
+                        .dli{font-size: var(--font20);    list-style: disc;    line-height: 140%; }
                     }
                     .media_icon{.flex; gap:.32rem ; margin-top: .64rem;
                         .icon{display: block; width: .5rem; height: .5rem;
@@ -2038,7 +2050,7 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
                         }
                     }
                     .pro_operate{.flex; margin-top: .73rem;gap: .12rem;
-                        .item{.f_center; cursor: pointer;  padding: .22rem .56rem; border-radius: .6rem;}
+                        .item{.f_center; cursor: pointer;  padding: .22rem .56rem; border-radius: .6rem; font-size: var(--font20);}
                         .i_quote{.white; background-color: var(--active_color);}
                         .i_buy{.black2; background-color: var(--yellow);}
                         .i_contrast{.white; background-color: var(--color_ccc);}
@@ -2048,7 +2060,6 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
         }
     }
     .product_info_bottom{width: 100%; height: auto; position: relative; z-index: 1; overflow: hidden; background-color: var(--color_f5);
-       
         .specifications_list{width: 100%; height: auto; margin-top: 1.2rem;
             .innerbox{width: 100%; height: auto;margin-bottom: 1.2rem;
                 .itemlist{margin-top: .64rem;  border-radius: 8px;background: #FFF; padding: 0 .64rem;
@@ -2059,7 +2070,7 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
                         .f_right{width: 70%;
                             .ps_ul{width: 100%; height: auto;
                                 .ps_li{.flex; .a_center; gap: .8rem; font-size: var(--font16); padding: .16rem 0; border-bottom: dashed 1px #999;
-                                   .word{.black9; width: 20%; max-width: 145px; } 
+                                   .word{.black9;.bold; width: 20%; max-width: 145px; } 
                                    .desc{.black0;width: 80%; } 
                                 }
                             }
@@ -2079,7 +2090,7 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
         }
     }
     @media @max480 {
-        .product_info_top {padding:0;
+        .product_info_top {
             .flexbox .f_right .info .pro_operate .item{padding:.1rem .2rem;}
         }
     }
@@ -3348,7 +3359,7 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
 
 .idxPageHide {
     @media @max990 {
-        span { width: 5px; height: 5px; }
+        span { width: 7px; height: 7px; }
     }
 }
 
