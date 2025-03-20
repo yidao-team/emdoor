@@ -1071,17 +1071,20 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
 }
 .pt-head2{ padding-top: var(--header-height);}
 .header_link{width: 100%; height: auto; border-bottom: solid 1px var(--color_ddd);
-    .flexbox{.flex;.a_center;padding: .145rem 0;
+    .flexbox{.flex;.a_center;
         .f_left{font-size: var(--font24);}
         .f_right{.flex;.a_center; gap: .56rem;font-size: var(--font16);
-            .wordbox{.flex;.a_center;flex-wrap: wrap; gap: .32rem; padding: .23rem 0;
-                .item{.dh;display: block;border-bottom: solid 2px rgba(255, 255, 255, 0);
-                    &:hover{.dh; .activec; border-bottom: solid 2px var(--yellow);
-
+            .wordbox{.flex;.a_center;flex-wrap: wrap; column-gap: .32rem;
+                .item{.dh; position: relative;  display: block;border-bottom: solid 2px rgba(255, 255, 255, 0); padding: .23rem 0;
+                    &:after{position: absolute; content: ''; width: 0; left: 0; bottom: -.1rem; height: 2px; background-color: var(--yellow);}
+                    &:hover{.dh; .activec; 
+                        &:after{
+                            width: 100%;
+                        }
                     }
                 }
             }
-            .operatebtn{.flex;.a_center;gap: .16rem; 
+            .operatebtn{.flex;.a_center;gap: .16rem;padding: .145rem 0; 
                 .item{padding: .16rem .4rem; display: block;border-radius: 60px;}
                 .i_quote{.black0; background-color: var(--yellow);}
                 .i_Contrast{.white; cursor: pointer; background-color: var(--active_color);}
@@ -2101,7 +2104,7 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
     .imgbg{width: 100%; height: auto;
         img{width: 100%; height: auto;}
     }
-    .info{.white; .center;width: 54%;position: absolute; z-index: 2;  top: .96rem;
+    .info{.white; .center;width: 50%;position: absolute; z-index: 2;  top: .96rem;
         .main_desc{margin-top: .32rem;}
     }
     @media @max480 {
@@ -2113,10 +2116,10 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
 }
 
 .pob2{
-    .info{ max-width: 610px;left: 0.64rem;text-align: left;top: 50%;transform: translateY(-50%);}
+    .info{ max-width: 5.9rem;left: 0.64rem;text-align: left;top: 50%;transform: translateY(-50%);}
 }
 .pob3{
-    .info{ max-width: 650px;right: 0.64rem;text-align: left;top: 50%;transform: translateY(-50%);}
+    .info{ max-width: 6.5rem;right: 0.64rem;text-align: left;top: 50%;transform: translateY(-50%);}
 }
 .pob4{
     .info{top: 50%;transform: translateY(-50%);}
@@ -2232,7 +2235,29 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
 /* --------------------------------------------------------------- 产品对比 */
 .product_compare_wrap{width: 100%; height: auto; position: relative; z-index: 1; overflow: hidden; padding: 1.2rem 0; background-color: var(--color_f5);
     .innerbox{width: 100%; height: auto;
-        .main_title{}
+        .filter_top{.flex; .a_center; .j_justify;
+            .main_title{}
+            .circle_filter{.flex;.a_center; .j_end; gap: .4rem;width: 50%;
+                .item{.flex;.a_center;  gap: .16rem; cursor: pointer; font-size: var(--font14);
+                    .choo{.flex;.a_center; .j_center;position: relative;
+                        border-radius: 4px;
+                        border: 1px solid #999;
+                        width: .16rem;
+                        height: .16rem; min-width: 14px;min-height: 14px;
+                        &:before{position: absolute; content: '';width:38%;height:38%;border-radius: 2px;
+                            background: #F6AB00; 
+                            opacity: 0;
+                        }
+                    }
+                }
+                .active{.activec;
+                    .choo{border: 1px solid #10589E;
+                        &:before{opacity: 1;}
+                    }
+                }
+            }
+        }
+       
         .pcw_content{margin-top: .64rem; padding: .64rem; background-color: #fff; border-radius: 8px;
             .flexbox{width: 100%; height: auto; gap: .16rem;
                 .f_left{width: 25%; gap: .16rem; font-size: var(--font32);
@@ -2241,11 +2266,11 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
                 .f_right{.flex; .j_end; width: 75%; gap: .88rem;
                     .item{width: 33%; position: relative; height: auto;.flex; gap: .16rem; padding: .04rem; border: solid 1px var(--color_eee);  border-radius: 8px;min-height: 120px;
                         .pic{width: 64%; height: auto; padding:.1rem ; background-color: #eee; border-radius: 8px;
-                            .pb{padding-bottom: 55%;
+                            .pb{padding-bottom: 73.6%;
                                 .ab{.flex; .a_center; .j_center;}
                             }
                         }
-                        .info{width: 36%; height: auto;  padding: .16rem; font-size: var(--font18); background-color: #fff;
+                        .info{width: 36%; height: auto;  padding: .16rem 0; font-size: var(--font18); background-color: #fff;
                             .word{.bold;}
                             .desc{font-size: 12px;margin-top: .1rem;}
                             .circledouble{.flex; .a_center; .j_center; position: absolute; right: .16rem; bottom: .16rem;cursor: pointer;}
@@ -2272,7 +2297,28 @@ main { width: 100%; height: auto;  --header-height: 1.04rem; --headertop-height:
             font-size: var(--font14); 
         }
     }
+    @media @max768 {
+        .innerbox {
+            .pcw_content .flexbox .f_right{
+                gap: 0.4rem;
+            }
+            .tips{width: 100%; height: auto;}
+        }
+    }
     @media @max480 {
+        .innerbox {
+            .filter_top{gap:.3rem;
+                .f_column; .a_start;
+                .circle_filter{.j_start; width: 100%; height: auto;}
+            }
+            .pcw_content{padding: .5rem;
+                .flexbox .f_right {.f_column;
+                    .item{
+                        width: 100%; height: auto;
+                    }
+                }
+            }
+        }
         .grid3{grid-template-columns: repeat(1, 1fr);}
     }
 }

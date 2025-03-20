@@ -814,8 +814,20 @@ $(document).ready(function () {
 		}
 	}
 	product_casestudios();
-
+	/* --------------------------------------------------------------- 硬件 */
+	function product_compare_wrap(){
+		var box = $('.product_compare_wrap'),
+		item = box.find(".circle_filter .item ");
+		if (box.length) {
+			item.click(function () {
+				$(this).addClass("active").siblings().removeClass("active");
+			})
+		}
+	}
+	product_compare_wrap();
 	
+
+
 	/* --------------------------------------------------------------- 硬件 */
 	function half_media_wrap(){
 		var box = $('.half_media_wrap');
